@@ -1,0 +1,49 @@
+<?php
+ include("connection1.php");
+ $sql = "select id,gift_name from gift";
+ $giftnameprice = $conn->query($sql);
+ 
+?>
+<html>
+ <head><link rel="stylesheet" href="styles.css"></head>
+  <body>
+   <div class = "topnav"><p><input type = "Button" name = "Back" id = "Back" onclick="history.back()"></p></div>
+    <div id = "act">
+     <form action = "updatequantity.php" method = "post">
+      <fieldset>
+      <legend>Customer Detail</legend>
+   
+       <label for = "name">Customer Name</label>
+       <input type = "text" name = "name" id = "name">
+       <select name = "giftlist" id = "giftlist">
+         <?php
+          while($giftlist = mysqli_fetch_array($giftnameprice))
+          {
+         ?>
+           <option value = "<?php echo $giftlist["id"]; ?>">
+          <?php echo $giftlist["gift_name"]; ?>
+           </option>
+          <?php
+          }
+          ?>
+        </select><br>
+
+       <label for = "price">Price</label>
+       <input type="text" name="price" id="price" disabled><br>
+
+       <label for = "quantity">Quantity</label>
+       <input type = "number" name = "quantityy" onchange = "mul_number();" id = "quantityy">
+
+       <label for = "totalamount">Total Amount To Pay</label>
+       <input type = "number" name = "totalamount" id = "totalamount"  disabled>
+
+       <input type = "submit" name = "submit" type = "submit">
+       </fieldset>
+      </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="selljs.js"></script>
+  </body>
+</html>
+  
+    
+       

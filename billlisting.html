@@ -1,0 +1,43 @@
+<html>
+<?php
+include_once("topnav.html");
+include ("connection1.php");
+    $sql = "select * from bills";
+     $all_bill = $conn->query($sql);
+    $sql = "select customer.first_name from customer inner join bills on customer.id = bills.customer_id";
+    $allname = $conn->query($sql);
+    
+?>
+ <head><link rel="stylesheet" href="styles2.css">
+ </head>
+  <body id = "bod">
+   <input type="button" class="button" onclick="location.href = 'bill.html';" value="New Bill" />
+   <table border = "1" class = "auto-index">
+   <tr>
+   <th>Sr no.</th>
+   <th>Customer Name</th>
+   <th>Bill Date</th>
+   <th>Total Bill</th>
+   <th>Mobile Number</th>
+   <th>Action</th>
+   </tr>
+   <?php
+    while($row=mysqli_fetch_array($all_bill)){
+    ?>
+    <tr>
+    <td id = "fir"></td>
+    <td><?php $roww=mysqli_fetch_array($allname); echo $roww["first_name"];?></td>
+    <td style="display:none;"><?php echo $row["id"]; ?></td>
+    <td><?php echo $row["bill_date"]; ?></td>
+    <td><?php echo $row["bill_after_discount"]; ?></td>
+    <td><?php echo $row["mobile_number"]; ?></td>
+    <td><a href="deletebill.php?id=<?php echo $row["id"]; ?>" onclick ="return confirm('Are you sure?')">Delete</a></td>
+    </tr>
+    <?php
+    }
+    ?>
+
+    </table>
+    
+  </body>
+  </html>

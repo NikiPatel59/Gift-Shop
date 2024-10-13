@@ -1,0 +1,78 @@
+<?php
+session_start();
+if(isset($_SESSION["username"])){
+include("connection1.php");
+  $sql = "select id,country_name from country";
+  $all_country = $conn->query($sql);
+?>
+<html>
+ <head>
+  <link rel="stylesheet" href="styles3.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+   <script src="validatecustomer.js"></script>
+   <script src="countryadd.js"></script>
+   <script src="mobile.js"></script>
+ </head>
+
+  <body id = "newbod">
+   <button class="button1" onclick="history.back()">Go Back</button>
+
+   <form action = "customer.php" method = "post" id = "customer">
+    <div id = "act">
+
+       <input type = "hidden" name = "id" id = "id"><br>
+
+       <label for = "firstname">First Name</label>
+       <input type = "text" name="firstname" id="firstname">
+       
+       <label for = "lastname">last Name</label>
+       <input type = "text" name="lastname" id="lastname">
+
+       <label for = "address">address</label>
+       <input type = "text" name="address1" id="address1">
+
+       <label for = "Country">Country</label>
+       <select name = "country" id = "country" required>
+       <?php
+          while($countryname = mysqli_fetch_array($all_country,MYSQLI_ASSOC))
+          {
+         ?>
+           <option value = "<?php echo $countryname["id"]; ?>">
+          <?php echo $countryname["country_name"]; ?>
+           </option>
+          <?php
+          }
+          ?>
+          </select><br>
+
+       <label for = "State">State</label>
+       <select name = "state" id = "state" required>
+       <option></option>
+       </select><br>
+
+       <label for = "City">City</label>
+       <select name = "city" id = "city" required>
+       <option></option>
+       </select><br>
+
+       <div id = "mob"></div>
+       <label for = "mobilenumber">Mobile Number</label>
+       <input type = "text" name="mobilenumber1" id="mobilenumber1" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"><br>
+
+       <div id = "emai"></div>
+       <label for = "email">email</label>
+       <input type = "email" name="email1" id="email1">
+
+       <input type = "submit" name = "submit2" id = "submit2">
+
+    </form>
+   </div>
+  </body>
+</html>
+<?php
+}
+else{
+header("Location:login.html");
+   }
+ ?>

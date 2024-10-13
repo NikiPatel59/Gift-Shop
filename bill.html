@@ -1,0 +1,142 @@
+<?php
+include_once("topnavi.html");
+   if(isset($_SESSION["username"])){
+include("connection1.php");
+ $sql = "select id,gift_name from gift";
+  $result = $conn->query($sql);
+
+ $sql = "select id,first_name from customer";
+  $resultt = $conn->query($sql);
+
+ $sql = "select id,discount from gift";
+  $resulttt = $conn->query($sql);
+
+?>
+<html>
+ <head><link rel="stylesheet" href="bill.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+  <script src="bills.js"></script>
+  <script src="basicdetails.js"></script>
+ </head>
+
+  <form method = "post" action = "bill.php" id = "bill1">
+   <div id = "act">
+  
+   <div id = "dropdown">
+    <select name = "customername" id = "customer">
+     <?php
+      while($customername = mysqli_fetch_array($resultt))
+       {
+     ?>
+        <option value = "<?php echo $customername["id"]; ?>">
+        <?php echo $customername["first_name"]; ?>
+        </option>
+     <?php
+       }
+      ?>
+    </select>
+
+   
+
+     
+    <label for="MobileNumber">Mobile Number</label>
+    <input type="number" name="mobilenumber" id="mobilenumber" readonly>
+    
+    <label for="Email">Email</label>
+    <input type="text" name="email" id="email" disabled>
+
+    <label for="Date">Date</label>
+    <input type="date" name="date" id="date"  value="<?= date('Y-m-d', time()); ?>" readonly >
+   
+    </div>
+  <input type = "button" value = "Add New Row" name = "addnewrow" id = "addnewrow"></button>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="rowadd.js"></script>
+
+  <table border = "1" >
+    <tr>
+     <thead>
+      <th>Gift Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total Amount</th>
+      <th>Discount</th>
+      <th>Total After Discount</th>
+      <th>Remove</th>
+      <th style="display:none;" >Hidden</th>
+     </thead>
+    </tr>
+
+    <tr id = "row1">
+     <td><label for="giftname"></label>
+      <select name = "giftname[]" class="gifts" id = "giftname1" style="width: 150px;">
+      <?php
+       while($giftname = mysqli_fetch_array($result))
+        {
+      ?>
+        <option value = "<?php echo $giftname["id"]; ?>">
+      <?php echo $giftname["gift_name"]; ?>
+        </option>
+      <?php
+        }
+      ?>
+      </select>
+
+     </td>
+     <td><label for="price"></label>
+         <input type="text" name="price[]" id="price1" disabled><br>
+     </td>
+
+     
+     <td><label for="quantity"></label><div id = "quan"></div>
+         <input type="text" name="quantity[]" id="quantity1"><br>
+     </td>
+
+     <td><label for = "totalamount"><div id = "dis"></label>
+       <input type = "text" name = "totalamount[]" id = "totalamount1" disabled >
+     </td>
+
+     <td><label for="discount"></label>
+         <input type="text" name="discount[]" id="discount1" <div id = "dis"><br>
+     </td>
+
+     <td><label for="Totalafterdiscount"></label>
+         <input type="text" name="totalafterdiscount[]" id="totalafterdiscount1" disabled ><br>
+     </td>
+
+     <td>
+         <input type = "button" value = "RemoveRow" name = "removerow1" id = "removerow1" style="display:none;"></button></td>
+
+     <td style="display:none;" ><label for="counter"></label>
+        <input type="text" name="counter" id="counter" value = "1"><br>
+     </td>
+     
+   </tr>
+   <tbody id ="TextBoxContainer"></tbody>
+  </table>
+
+   <div id = "totall1">
+
+   <label for = "total">Total</label>
+   <input type = "number" name="total" id = "total"> <br>
+
+   <label for = "Discountt">Discount</label>
+   <input type = "number" name="discountonbill" id = "discountonbill"><br>
+
+   <label for = "billafterdiscount">Bill After Discount</label>
+   <input type = "text" name="billafterdiscount" id = "billafterdiscount" >
+
+   <input type = "submit" value = "Generate Bill" name = "generatebill" id = "generatebill"></button>
+
+   </form>
+   </div>
+  </div>
+ </body>
+ </html>
+ <?php
+ }
+ else{
+ header("Location:login.html");
+   }
+ ?>

@@ -1,0 +1,24 @@
+INSERT INTO Country (id,country_name)
+VALUES (2,'America');
+INSERT INTO Country (id,country_name)
+VALUES (3,'Canada');
+
+INSERT INTO state (id, state_name,country_name)
+VALUES (1,'Gujarat','India');
+INSERT INTO state (id, state_name,country_name)
+VALUES (2,'Maharashtra','India');
+INSERT INTO state (id, state_name,country_name)
+VALUES (3,'Rajasthan','India');
+INSERT INTO state (id, state_name,country_name)
+VALUES (4,'Florida','America');
+INSERT INTO state (id, state_name,country_name)
+VALUES (5,'California','America');
+INSERT INTO state (id, state_name,country_name)
+VALUES (6,'Texas','America');
+INSERT INTO state (id, state_name,country_name)
+VALUES (7,'Qubec','Canada');
+INSERT INTO state (id, state_name,country_name)
+VALUES (8,'Alberta','Canada');
+
+
+create table bills (id int AUTO_INCREMENT PRIMARY KEY,customer_id int,quantity int,discount_on_item int,discount_on_total int,bill_after_discount float)

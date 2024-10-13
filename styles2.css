@@ -1,0 +1,244 @@
+input[type=text], select,[type=date],input[type=number],input[type=time],input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  }
+  input[type=submit] {
+  width: 100%;
+  background-color:#8080ff;;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+ 
+#act {
+  display: inline-block;
+  border-radius: 15px;
+  background-color:;  
+  padding: 25px;
+  width:35%;
+  position:relative;
+  left:5px; 
+  top:40px; 
+}
+table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  width: 100px;
+  height:80px;
+  margin-left: auto;
+  margin-right: auto;
+      }
+th {
+  background-color:#8080ff;
+  color: #ffffff;
+  text-align: left;
+   }
+th,td {
+  padding: 10px 12px;
+      }
+#demo{
+  position:relative;
+  left:89px;
+  font-family: sans-serif;
+  font-size:18px;
+     }
+tr:nth-child(even){
+  background-color: #f0f5f5;
+  opacity:0.60;
+  color: black;
+  font-weight: bold;
+                  }
+tr:nth-child(odd){
+  background-color:  #bfbfbf;
+  opacity:0.60;
+  color: black;
+  font-weight: bold;
+                  }
+.auto-index td:first-child:before
+{
+  counter-increment: Serial;      /* Increment the Serial counter */
+  content: counter(Serial); /* Display the counter */
+}
+#demo:link {
+  background-color: #ffd633;
+           }
+
+#demo1{
+  position:relative;
+  left:480px;
+  font-family: sans-serif;
+  font-size:18px;
+      }
+#demo2{
+  position:relative;
+  left:490px;
+  font-family: sans-serif;
+  font-size:18px;
+      }
+body { 
+overflow-x: hidden;
+overflow-y:auto; 
+     }
+#fir{
+    text-align:center;
+    }
+a:link {
+  color: #cc9900;
+       }
+a:visited {
+  color: green;
+          }
+a:hover {
+  color: hotpink;
+        }
+a:active {
+  color: blue;
+         }
+#demo3{
+  text-align:right;
+}
+body {
+    text-align: center;
+}
+form {
+    display: inline-block;
+    text-align: left;
+     
+
+}
+#bod{
+  background-image: url("download5.jpg");
+   background-size: 1400px 600px;
+
+   
+}
+
+label {
+  font-weight: bold;
+  color:#000000;
+  font-size:18px;
+
+}
+input,select {
+  background-color:#f0f5f5;
+  color:#808080;
+  font-weight: bold;
+  opacity: none;
+  
+}
+
+
+.topnav {
+  background-color:#ff9999;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+#h1{
+  font-weight:bold;
+  position:relative;
+  left:5px; 
+  top:90px; 
+}
+
+#para{
+  position: relative;
+  left: 490px;
+  color:black;
+  font-weight:bold;
+}
+#link{
+  position: relative;
+  left: 100px;
+  top:10px;
+  color:black;
+  font-weight: bold;
+}
+body
+{
+    counter-reset: Serial;           /* Set the Serial counter to 0 */
+}
+
+.button {
+  background-color:#ff9900;
+  border: none;
+  color: Black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position: relative;
+  top: 10px;
+  left: 110px;
+}
+#newbod{
+  background-image: url("downlo.jpg");
+   background-size: 1400px 600px;
+}
+#submit1{
+  width: 100%;
+  background-color:#76a2a2;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color:#e6ac00;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position: relative;
+  top: -60px;
+  right:600px;
+}
+  

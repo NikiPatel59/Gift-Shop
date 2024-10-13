@@ -1,0 +1,45 @@
+<?php
+session_start();
+
+   if(isset($_SESSION["username"])){
+
+ include("connection1.php");
+ $sql = "select * from gift where id = " . $_GET["gift_id"];
+ $result = $conn->query($sql);
+?>
+<html>
+ <head>
+  <link rel="stylesheet" href="styles.css">
+ </head>
+ </html>
+  <body>
+   <div id = "act">
+    <form action = "giftshop.php" method = "post">
+     <fieldset>
+      <legend>Add Item Detail</legend>
+      <?php $newid = mysqli_fetch_assoc($result);?>
+       <input type = "hidden" name = "id" id = "id" value=<?php echo $newid["id"]?>><br>
+
+       <label for = "Gift name">Gift Name</label>
+       
+       <input type = "text" name="giftnamee" id="giftnamee" value=<?php echo $newid["gift_name"]?>>
+
+       <label for = "Price">Price</label>
+       
+       <input type = "number" name = "pricee" id ="pricee" value=<?php echo $newid["price"]?>>
+
+       <label for = "Quantity">Quantity</label>
+       
+       <input type = "number" name = "quantityyy" id = "quantityyy" value=<?php echo $newid["quantity"]?>>
+       <input type = "submit" name = "submit1" id = "submit">
+     </fieldset>
+    </form>
+   </div>
+  </body>
+</html>
+<?php
+}
+else{
+header("Location:login.html");
+   }
+ ?>

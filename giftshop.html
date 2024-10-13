@@ -1,0 +1,47 @@
+<html>
+<?php
+ include_once("topnav.html"); 
+   if(isset($_SESSION["username"])){
+   
+     include("connection1.php");
+     $sql = "select * from gift";
+     $all_gift = $conn->query($sql);
+?>
+ <head><link rel="stylesheet" href="styles2.css">
+ </head>
+  <body id = "bod">
+  <input type="button" class="button" onclick="location.href = 'addgift.html';" value="Add Gift" />
+   <table border = "1" class = "auto-index">
+    <tr>
+     <th>Sr No.</th>
+     <th>Gift Name</th>
+     <th>Price</th>
+     <th>Quantity</th>
+     <th>Action</th>
+    </tr>
+   <?php
+    while($row=mysqli_fetch_array($all_gift)){
+    ?>
+    <tr>
+     <td id = "fir"></td>
+     <td><?php echo $row["gift_name"]?></td>
+     <td><?php echo $row["price"]?></td>
+     <td><?php echo $row["quantity"]?></td>
+     <td id = "but"><a href="editgift.html?gift_id=<?php echo $row["id"]; ?>">Edit</a>
+     <a href="deletegift.php?gift_name=<?php echo $row["id"];?>" onclick ="return confirm('Are you sure?')">Delete</a></td>
+     <?php } ?>
+    </tr>
+   </table>
+
+  </body>
+</html>
+<?php
+}
+else{
+header("Location:login.html");
+   }
+   
+?>
+
+
+

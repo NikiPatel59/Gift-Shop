@@ -1,0 +1,37 @@
+<?php
+  session_start();
+   if(!isset($_SESSION["username"])){
+    //die("please login");
+    header("Location:login.html");
+    //print_r ($_SESSION);
+}
+  else{
+?>
+<html>
+ <head>
+  <link rel="stylesheet" href="styles2.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+  <script src="validateaddgift.js"></script>
+ </head>
+ </html>
+  <body id = "newbod">
+   <div id = "act">
+   <button class="button1" onclick="history.back()">Go Back</button>
+    <form action = "giftshop.php" method = "post" id = "addgift">
+       <label for = "Gift name">Gift Name</label>
+       <input type = "text" name="giftname" id="giftname">
+
+       <label for = "Price">Price</label>
+       <input type = "number" name = "price" id ="price">
+
+       <label for = "Quantity">Quantity</label>
+       <input type = "number" name = "quantity" id = "quantity">
+
+       <input type = "submit" name = "submit" id = "submit">
+     </fieldset>
+    </form>
+   </div>
+  </body>
+</html>
+<?php } ?>

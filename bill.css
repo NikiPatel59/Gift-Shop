@@ -1,0 +1,83 @@
+select{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  }
+#dropdown{
+  width: 20%;
+  padding: 12px 8px;
+  margin: 1px 0;
+  white-space: nowrap;
+  
+  }
+ /*input[type=button] {
+  width: 15%;
+  background-color: gray;
+  color: white;
+  padding: 14px 20px;
+  margin: 1px 710px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}*/
+input[type=text],input[type=number],input[type=date]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  overflow: hidden;
+  }
+table {
+  border-collapse: collapse;
+  width:100%;
+
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+#act {
+  display: inline-block;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width:97%;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+#totall1{
+   width: 20%;
+   margin: 13px 1030px;
+   overflow: hidden;
+  
+}
+body
+{
+    counter-reset: Serial;           /* Set the Serial counter to 0 */
+}
+.auto-index td:first-child:before
+{
+  counter-increment: Serial;      /* Increment the Serial counter */
+  content: counter(Serial); /* Display the counter */
+}
+#up{
+  width: 20%;
+  white-space: nowrap;
+}
+
+  
+
+  

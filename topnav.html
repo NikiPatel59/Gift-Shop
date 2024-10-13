@@ -1,0 +1,17 @@
+ <html>
+ <head><script src="https://code.jquery.com/jquery-1.11.3.min.js"></script><link rel="stylesheet" href="styles2.css"></head>
+ 
+ <body>
+    <div id = "topnav" class= "topnav">
+    <a href = "giftshop.html">Gift</a>
+    <a href = "billlisting.html" id = "demo3">Bill</a>
+    <a href = "customerlist.html" id = "demo3">Customer</a>
+    <?php
+    session_start()
+    ?>
+    <div id = "para">
+    <p style='color:black; text-align:center;'><?php echo "Welcome ".($_SESSION["username"]).".";?></p></div>
+    </div>
+ </body>
+ </head>
+ </html>
